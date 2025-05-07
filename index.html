@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interaktif Bahagia</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Quicksand", sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 500px;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: all 0.5s ease;
+      }
+
+      .page {
+        display: none;
+        opacity: 0;
+        transform: scale(0.95);
+        transition: all 0.5s ease;
+      }
+
+      .page.active {
+        display: block;
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      h1,
+      h2 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background: #6c63ff;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s;
+        margin: 10px;
+      }
+
+      button:hover {
+        background: #5a54d1;
+        transform: translateY(-2px);
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        max-height: 200px;
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Halaman 1 -->
+      <div id="page1" class="page active">
+        <h1>Haiiiiiiiiii!</h1>
+        <button onclick="goToPage(2)">Lanjut</button>
+      </div>
+
+      <!-- Halaman 2 -->
+      <div id="page2" class="page">
+        <h2>Happy Hari iniiiiii?</h2>
+        <button onclick="handleAnswer(true)">Happyyyy</button>
+        <button onclick="handleAnswer(false)">G</button>
+      </div>
+
+      <!-- Halaman 3 -->
+      <div id="page3" class="page">
+        <h2>
+          Hehehe Happy Terus yahhh wanita Hebatkuuuuuuu, Happy BirthDayyy 😊
+        </h2>
+        <img
+          src="img/WhatsApp Image 2025-05-07 at 08.10.05.jpeg"
+          alt="Deris Tampan"
+        />
+      </div>
+    </div>
+
+    <script>
+      function goToPage(pageNumber) {
+        const pages = document.querySelectorAll(".page");
+        pages.forEach((p) => p.classList.remove("active"));
+        document.getElementById("page" + pageNumber).classList.add("active");
+      }
+
+      function handleAnswer(isHappy) {
+        if (isHappy) {
+          goToPage(3);
+        } else {
+          alert("Gbs. Salah Jawaban");
+        }
+      }
+    </script>
+  </body>
+</html>
